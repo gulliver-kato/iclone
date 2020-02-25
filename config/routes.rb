@@ -3,6 +3,6 @@ Rails.application.routes.draw do
     collection do
       post :confirm
     end
-    resources :users, only: [:new]
+    resources :users, only: [:new, :create]
   end
 end
