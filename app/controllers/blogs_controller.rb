@@ -28,7 +28,7 @@ class BlogsController < ApplicationController
   # POST /blogs
   # POST /blogs.json
   def create
-    @blog = Blog.new(blog_params)
+    @blog = current_user.blogs.build(blog_params)
 
     respond_to do |format|
       if @blog.save
@@ -53,6 +53,11 @@ class BlogsController < ApplicationController
         format.json { render json: @blog.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def confirm
+    @blog = current_user.blogs.build(blog_params)
+    render :new if @blog.invalid?
   end
 
   # DELETE /blogs/1
