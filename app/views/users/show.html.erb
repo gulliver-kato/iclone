@@ -2,6 +2,12 @@
 
 <p>メールアドレス: <%= @user.email %></p>
 
+<p>
+  <strong>Image:</strong>
+  <% if @user.image.url.present? %>
+    <%= image_tag @user.image.url %>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %>
 <p><%= link_to 'blog', blogs_path, class: "btn btn-default"  %></p>
-
-
