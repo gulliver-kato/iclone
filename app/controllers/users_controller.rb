@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
     before_action :set_user, only: [:show, :edit, :update, :destroy]
+    before_action :ensure_corret_user, only: [:edit, :update]
 
     def new
         @user = User.new
@@ -35,6 +36,13 @@ class UsersController < ApplicationController
     private
     def set_user
         @user = User.find(params[:id])
+    end
+
+    def ensure_corret_user
+      if current_user.id != @user.id
+        flash[:notice] = "権限がありません"
+        redirect_to user_path(@user.id) 
+      end
     end
 
     def user_params

@@ -1,5 +1,6 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  before_action :ensure_corret_user, only: [:edit, :update]
 
   # GET /blogs
   # GET /blogs.json
@@ -76,6 +77,12 @@ class BlogsController < ApplicationController
       @blog = Blog.find(params[:id])
     end
 
+    def ensure_corret_user
+      if current_user.id != @blog.user.id
+        flash[:notice] = "権限がありません"
+        redirect_to blogs_path
+      end
+    end
     # Only allow a list of trusted parameters through.
     def blog_params
       params.require(:blog).permit(:content, :image, :image_cache)
