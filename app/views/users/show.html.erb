@@ -9,5 +9,7 @@
   <% end %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %>
+<% if current_user.id == @user.id %>
+　<%= link_to 'Edit', edit_user_path(@user) %>
+<% end %>
 <p><%= link_to 'blog', blogs_path, class: "btn btn-default"  %></p>
