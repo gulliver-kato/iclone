@@ -1,0 +1,16 @@
+<h1>登録が完了しました！</h1>
+<h4>name: <%= @blog.user.name %></h4>
+
+<h4>登録内容の確認</h4>
+<p>
+  <strong>Content:</strong>
+  <%= @blog.content %>
+</p>
+<p>
+  <strong>name:</strong>
+  <%= @blog.user.name %>
+</p>
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @blog.image.url %>
+</p>

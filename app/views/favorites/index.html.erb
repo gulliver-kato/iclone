@@ -1,0 +1,9 @@
+<% @favorites.each do |favorite| %>
+ <table>
+      <tr>
+         <td><%= favorite.blog.content %></td>
+         <td><%= image_tag(favorite.blog.image.url) if favorite.blog.image && favorite.blog.image.url %></td>
+         <td><%= favorite.blog.user.name %></td>
+      </tr>
+ </table>
+<% end %>

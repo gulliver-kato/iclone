@@ -9,4 +9,5 @@ class User < ApplicationRecord
     mount_uploader :image, ImageUploader
 
     has_many :blogs
+    has_many :favorites, dependent: :destroy
 end
