@@ -34,7 +34,7 @@ class BlogsController < ApplicationController
 
     respond_to do |format|
       if @blog.save
-        BlogMailer.blog_mail(@blog).deliver
+        # BlogMailer.blog_mail(@blog).deliver
         # format.html { redirect_to @blog, notice: 'Blog was successfully created.' }
         format.html { redirect_to blog_path(@blog.id), notice: 'Blog was successfully created.' }
         format.json { render :show, status: :created, location: @blog }
