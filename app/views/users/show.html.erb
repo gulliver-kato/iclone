@@ -11,9 +11,9 @@
 
 <% if logged_in? %>
   <% if current_user.id == @user.id %>
- 　   <%= link_to 'Edit', edit_user_path(@user) %>
+ 　   <p><%= link_to 'Edit', edit_user_path(@user), class:"btn btn-primary btn-lg btn-block" %></p>
   <% end %>
 <% end %> 
 
-<p><%= link_to 'お気に入りblog', favorites_path, class: "btn btn-default"  %></p>
-<p><%= link_to 'blog', blogs_path, class: "btn btn-default"  %></p>
+<p><%= link_to 'お気に入りblog', favorites_path, class:"btn btn-primary btn-lg btn-block" %></p>
+<p><%= link_to 'blog', blogs_path, class:"btn btn-primary btn-lg btn-block"  %></p>

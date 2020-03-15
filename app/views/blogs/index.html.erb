@@ -16,11 +16,11 @@
         <td><%= blog.content %></td>
         <td><%= image_tag(blog.image.url) if blog.image && blog.image.url %></td>
         <td><%= blog.user.name %></td>
-        <td><%= link_to 'Show', blog %></td>
+        <td><%= link_to 'Show', blog, class:'btn btn-primary' %></td>
 
       <% if current_user.id == blog.user.id %>
-        <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
-        <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_blog_path(blog), class:'btn btn-primary'  %></td>
+        <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-primary'  %></td>
       <% end %>
       </tr>
     <% end %>
@@ -29,4 +29,4 @@
 
 <br>
 
-<%= link_to 'New Blog', new_blog_path %>
+<%= link_to 'New Blog', new_blog_path, class:"btn btn-primary btn-lg btn-block" %>
