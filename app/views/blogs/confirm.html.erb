@@ -1,4 +1,4 @@
-<%= form_with(model: @blog, url: blogs_path, local: true) do |form| %>
+<%= form_with(model: @blog, local: true) do |form| %>
   <p>本文:<%= @blog.content %></p>
   <%= image_tag(@blog.image.url) if @blog.image && @blog.image.url %>
   <%= form.hidden_field :image_cache %>
@@ -9,6 +9,6 @@
 <%= form_with(model:@blog, url:new_blog_path, local:true, method:"get") do |form| %>
   <%= form.hidden_field :image_cache %>
   <%= form.hidden_field :content %>
-  <%= form.submit "戻る", mame: "back"%>
+  <%= form.submit "戻る", name: "back" %>
 <% end %>
 
