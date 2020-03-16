@@ -18,12 +18,12 @@
   <br><%= f.label :email %>
   <%= f.email_field :email %>
 
- <br><%= f.label :image %>
+  <br><%= f.label :image %>
   <%= f.file_field :image %>
     <!-- ↓一時的なデータとしてファイル構造を含むデータをキャッシュする -->
   <%= f.hidden_field :image_cache%>
   
- <br><%= f.label :password %>
+  <br><%= f.label :password %>
   <%= f.password_field :password %>
 
   <%= f.submit "Edit my account" %>
