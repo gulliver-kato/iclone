@@ -76,18 +76,18 @@ class BlogsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_blog
+  def set_blog
       @blog = Blog.find(params[:id])
+  end
+  
+  def ensure_corret_user
+    if current_user.id != @blog.user.id
+      flash[:notice] = "権限がありません"
+      redirect_to blogs_path
     end
-
-    def ensure_corret_user
-      if current_user.id != @blog.user.id
-        flash[:notice] = "権限がありません"
-        redirect_to blogs_path
-      end
-    end
+  end
     # Only allow a list of trusted parameters through.
-    def blog_params
-      params.require(:blog).permit(:content, :image, :image_cache)
-    end
+  def blog_params
+    params.require(:blog).permit(:content, :image, :image_cache)
+  end
 end
